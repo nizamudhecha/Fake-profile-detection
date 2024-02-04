@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import numpy as np
-from keras.models import load_model
+
 from instaloader import Instaloader, Profile, ProfileNotExistsException
 import pandas as pd
 import os
