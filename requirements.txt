@@ -5,3 +5,4 @@ tensorflow==2.6.0
 instaloader==4.9.4
 pandas==1.3.3
 joblib==1.0.1
+pip>=21.2.4
