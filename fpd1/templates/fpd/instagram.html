@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <link href="{% static 'styles2.css' %}" type="text/css" rel="stylesheet">
+
+  <title>Fake Profile Detection System</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+  <style>
+    .custom-modal {
+      max-width: 60%;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Fake Profile Detection System</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict whether the profile is fake or not</h5>
+      </div>
+
+      <div class="row">
+        <form action="{% url 'instagram' %}" method="post" class="col s12">
+          {% csrf_token %}
+          {% if msg %}
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: {% if profile_is_fake %}red{% else %}green{% endif %};">Check Result</a>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal custom-modal" style="background-color: {% if profile_is_fake %}red{% else %}green{% endif %};">
+              <div class="modal-content">
+                <h4>{{ msg }}</h4>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
+              </div>
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems, {});
+                instances[0].open();  // Open the modal
+              });
+            </script>
+          {% endif %}
+
+          <div class="row">
+            <div class="input-field col s4">
+              <label for="inputusername"><b>Instagram Username</b></label>
+              <input required placeholder="Instagram Username" name="inputusername" id="inputusername" type="text" class="validate">
+            </div>
+          </div>
+
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange">Check Instagram Profile</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Fake Profile Detection System</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="col s12">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <ul class="styled-list">
+      {% for result in results %}
+        <li>{{ result }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!--  Scripts-->
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+</body>
+</html>
