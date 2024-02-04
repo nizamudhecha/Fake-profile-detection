@@ -30,8 +30,7 @@ SECRET_KEY = 'django-insecure-^+!q-awywm2=o)ht16v*sn+lg-0zo!zi-^=p2b2(!b2sb7)pw9
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.in.ngrok.io','https://kkfpd.pagekite.me/']
-
+PORT = int(os.environ.get("PORT", 8000))
 
 # Application definition
 
