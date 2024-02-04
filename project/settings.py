@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-^+!q-awywm2=o)ht16v*sn+lg-0zo!zi-^=p2b2(!b2sb7)pw9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['0.0.0.0','zeet.app']
 CSRF_TRUSTED_ORIGINS = ['https://*.in.ngrok.io','https://kkfpd.pagekite.me/']
 
 
