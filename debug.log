@@ -1,0 +1,21 @@
+Watching for file changes with StatReloader
+Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+Creating converter from 7 to 5
+Creating converter from 5 to 7
+Creating converter from 7 to 5
+Creating converter from 5 to 7
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /detect/
+Traceback (most recent call last):
+  File "C:\Users\nizam\Desktop\python\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nizam\Desktop\python\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nizam\Desktop\python\fpd\fpd1\views.py", line 35, in Detect
+    with open("fpd/model.json", "r") as json_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'fpd/model.json'
+C:\Users\nizam\Desktop\python\fpd\fpd1\settings.py changed, reloading.
